@@ -8,5 +8,5 @@ computation_valid = 1 == 1
 
 print(f"Language: {language}")
 print(f"Version: {version}")
-print(f"Pi approx: {pi_approx}")
+print(f"Pi approx:{pi_approx}")
 print(f"Computation valid: {computation_valid}")
