@@ -1,3 +1,4 @@
 #!/usr/bin/env python3
-for x in range(0, 99):
-    print(f"{x} =", hex(x))
+
+for i in range(99):
+    print("{:02}".format(i), end=", " if i != 98 else "\n")
