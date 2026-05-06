@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
-alphabet = "abcdEfghijklmnopQrstuvwxyz"
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+i = 0
 
-for c in alphabet:
-    print(c, end="")
+while i < len(alphabet):
+    if alphabet[i] != 'e' and alphabet[i] != 'q':
+        print(alphabet[i], end="")
+    i += 1
+
 print()
