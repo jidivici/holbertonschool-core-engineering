@@ -5,7 +5,7 @@ def uppercase(str):
     for char in str:
         i = 0
         found = False
-        while i < len(lower):
+        while i < 26:
             if char == lower[i]:
                 print("{}".format(upper[i]), end="")
                 found = True
