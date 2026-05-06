@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 def uppercase(str):
-    new_str = ""
+    lower = "abcdefghijklmnopqrstuvwxyz"
+    upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     for char in str:
-        if 'a' <= char <= 'z':
-            new_char = chr(ord(char) - 32)
-        else:
-            new_char = char
-        new_str += new_char
-    return new_str
+        i = 0
+        found = False
+        while i < len(lower):
+            if char == lower[i]:
+                print("{}".format(upper[i]), end="")
+                found = True
+                break
+            i += 1
+        if not found:
+            print("{}".format(char), end="")
+    print()
