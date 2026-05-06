@@ -3,10 +3,10 @@
 language = "Python"
 version = 3
 pi_value = 3.140824570
-pi_approx = f"{pi_value: .2f}"
+pi_approx = "{:.2f}".format(pi_value)
 computation_valid = 1 == 1
 
-print(f"Language: {language}")
-print(f"Version: {version}")
-print(f"Pi approx:{pi_approx}")
-print(f"Computation valid: {computation_valid}")
+print("Language: {}".format(language))
+print("Version: {}".format(version))
+print("Pi approx: {}".format(pi_approx))
+print("Computation valid: {}".format(computation_valid))
