@@ -3,4 +3,3 @@ alphabet = "abcdefghijklmnopqrstuvwxyz"
 for c in alphabet:
     if c != 'e' and c != 'q':
         print("{}".format(c), end="")
-print()
