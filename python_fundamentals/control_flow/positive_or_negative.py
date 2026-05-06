@@ -3,8 +3,8 @@
 number = __import__('random').randint(-10, 10)
 
 if number == 0:
-    print(f"{number} is zero")
+    print("{} is zero".format(number))
 if number < 0:
-    print(f"{number} is negative")
+    print("{} is negative".format(number))
 if number > 0:
-    print(f"{number} is positive")
+    print("{} is positive".format(number))
