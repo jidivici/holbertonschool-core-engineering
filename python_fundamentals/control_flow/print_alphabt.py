@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
 
 alphabet = "abcdfghijklmnoprstuvwxyz"
-print(alphabet)
+for char in alphabet:
+    print(char)
