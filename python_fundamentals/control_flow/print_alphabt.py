@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-for c in "abcdefghijklmnopqrstuvwxyz":
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+for c in alphabet:
     if c != 'e' and c != 'q':
         print("{}".format(c), end="")
 print()
