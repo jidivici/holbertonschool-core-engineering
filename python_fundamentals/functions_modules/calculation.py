@@ -4,7 +4,7 @@ from calculator_1 import sub
 from calculator_1 import div
 from calculator_1 import mul
 
-print(add(10, 5))
-print(sub(5, 10))
-print(mul(5, 10))
-print(div(5, 10))
+print("".format(add(10, 5)))
+print("".format(sub(10, 5)))
+print("".format(div(10, 5)))
+print("".format(mul(10, 5)))
