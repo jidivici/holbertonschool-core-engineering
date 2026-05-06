@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
-alphabet = "abcdfghijklmnoprstuvwxyz"
-for char in alphabet:
-    print(char, end="")
+alphabet = "abcdefghijklmnopqrstuvwxyz"
+i = 0
+
+while i < len(alphabet):
+    print(alphabet[i], end="")
+    i += 1
