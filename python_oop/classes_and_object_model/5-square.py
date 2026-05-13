@@ -1,12 +1,26 @@
 #!/usr/bin/env python3
+"""Module that defines a Square class."""
+
 
 class Square:
+    """Defines a square."""
 
     def __init__(self, size=0):
+        """Initialize a new Square.
+
+        Args:
+            size (int): The size of the square. Defaults to 0.
+        """
         self.size = size
 
     @property
     def size(self):
+        """Get or set the size of the square.
+
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
+        """
         return self.__size
 
     @size.setter
@@ -18,9 +32,15 @@ class Square:
         self.__size = size
 
     def area(self):
+        """Compute the area of the square.
+
+        Returns:
+            int: The area of the square.
+        """
         return self.__size * self.__size
 
     def my_print(self):
+        """Print the square with the character '#'."""
         if self.size == 0:
             print()
         for i in range(self.size):
