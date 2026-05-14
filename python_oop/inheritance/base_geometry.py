@@ -10,29 +10,17 @@ class BaseGeometry:
     Provides common validation and interface methods.
     """
 
-
     def area(self):
         """
         Raises an exception because area is not implemented.
-
-        Raises:
-            Exception: area is not implemented
         """
-        raise Exception("[{}]area is not implemented".format(self.__class__.__name__))
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """
         Validates that value is a positive integer.
-
-        Args:
-            name (str): The name of the value
-            value (int): The value to validate
-
-        Raises:
-            TypeError: if value is not an integer
-            ValueError: if value is less than or equal to 0
         """
-        if isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
 
         if value <= 0:
