@@ -7,9 +7,8 @@ Rectangle = __import__('2-rectangle').Rectangle
 class Square(Rectangle):
     """Defines a square, inherits from Rectangle."""
 
-    def __init__(self, width, height):
+    def __init__(self, size):
         """Initialize a new Square."""
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
-        self.__width = width
-        self.__height = height
+        self.integer_validator("width", size)
+        self.__width = size
+        self.__height = size
