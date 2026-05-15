@@ -27,7 +27,7 @@ class Animal(ABC):
 class Dog(Animal):
     """Defines a dog, inherits from Animal."""
 
-    def __init__(self, name):
+    def __init__(self, name=""):
         """Initialize a new Dog."""
         super().__init__(name)
 
@@ -39,7 +39,7 @@ class Dog(Animal):
 class Cat(Animal):
     """Defines a cat, inherits from Animal."""
 
-    def __init__(self, name):
+    def __init__(self, name=""):
         """Initialize a new Cat."""
         super().__init__(name)
 
