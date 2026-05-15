@@ -23,7 +23,7 @@ class Circle(Shape):
     """Defines a circle."""
 
     def __init__(self, radius):
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         return math.pi * (self.radius ** 2)
@@ -36,8 +36,8 @@ class Rectangle(Shape):
     """Defines a rectangle."""
 
     def __init__(self, width, height):
-        self.width = width
-        self.height = height
+        self.width = abs(width)
+        self.height = abs(height)
 
     def area(self):
         return self.width * self.height
