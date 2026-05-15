@@ -1,21 +1,25 @@
 #!/usr/bin/env python3
-from abc import ABC
 
 
-class VerboseList(list, ABC):
+class VerboseList(list):
+    """A list subclass that prints notifications on modifications."""
 
     def append(self, item):
+        """Add an item to the list and print a notification."""
         super().append(item)
         print("Added [{}] to the list.".format(item))
 
     def extend(self, items):
+        """Extend the list and print the number of items added."""
         super().extend(items)
-        print("Extended [{}] to the list.".format(len(items)))
+        print("Extended the list with {} items.".format(len(items)))
 
     def remove(self, item):
+        """Remove an item from the list and print a notification."""
+        print("Removed [{}] from the list.".format(item))
         super().remove(item)
-        print("Removed [{}] to the list.".format(item))
 
     def pop(self, index=-1):
-       print("Popped [{}] to the list.".format(self[index]))
-       super().pop(self[index])
+        """Remove an item at the given index and print a notification."""
+        print("Popped [{}] from the list.".format(self[index]))
+        return super().pop(index)
