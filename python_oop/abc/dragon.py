@@ -1,26 +1,23 @@
 #!/usr/bin/env python3
-"""Module that defines Animal, Dog, and Cat classes using ABC."""
-
+"""Module that defines Dragon, fly, and swim classes using ."""
 
 class SwimMixin:
-    """Module that defines Animal, Dog, and Cat classes using ABC."""
+    """Mixin providing swimming capability to classes."""
 
     def swim(self):
-        """Swim the animal."""
+        """Make the creature swim."""
         print("The creature swims!")
 
-
 class FlyMixin:
-    """Module that defines Animal, Dog, and Cat classes using ABC."""
+    """Mixin providing flying capability to classes."""
 
     def fly(self):
-        """Fly the animal."""
+        """Make the creature fly."""
         print("The creature flies!")
 
-
 class Dragon(SwimMixin, FlyMixin):
-    """Module that defines Animal, Dog, and Cat classes using ABC."""
+    """Dragon class combining swimming and flying abilities."""
 
     def roar(self):
-        """Dragon the animal roars."""
+        """Make the dragon roar."""
         print("The dragon roars!")
