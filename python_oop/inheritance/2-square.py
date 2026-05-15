@@ -8,20 +8,13 @@ class Square(Rectangle):
     """Defines a square, inherits from Rectangle."""
 
     def __init__(self, size):
-        """Initialize a new Square.
-
-        Args:
-            size (int): The size of the square.
-        """
+        """Initialize a new Square."""
         self.integer_validator("size", size)
         super().__init__(size, size)
 
     def __str__(self):
-        """Return string representation of Square.
-
-        Returns:
-            str: [Square] <width>/<height>
-        """
+        """Return string representation of Square."""
         return "[Square] {}/{}".format(
-            self.width, self.width
+            self._Rectangle__width,
+            self._Rectangle__height
         )
