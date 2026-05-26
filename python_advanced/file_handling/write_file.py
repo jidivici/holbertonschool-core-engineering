@@ -3,5 +3,5 @@
 
 def write_file(filename="", text=""):
     """Writes text to the given file and returns the number of characters written."""
-        with open(filename, mode="w") as f:
-            return f.write(text)
+    with open(filename, mode="w") as f:
+        return f.write(text)
