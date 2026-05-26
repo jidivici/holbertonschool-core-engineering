@@ -6,4 +6,3 @@ def append_write(filename="", text=""):
     with open(filename, mode="a") as f:
         return f.write(text)
 
-print(append_write("teste.txt", "This School is so cool!\n"))
