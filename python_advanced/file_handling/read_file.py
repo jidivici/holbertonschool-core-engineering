@@ -3,5 +3,5 @@
 
 def read_file(filename=""):
     """Opens and returns the full content of the given file."""
-    with open(filename, mode="r") as f:
-        return f.read()
+    with open(filename, mode="r", encoding="utf-8") as f:
+        print(f.read(), end="")
