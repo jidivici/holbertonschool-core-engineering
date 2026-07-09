@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
-"""WebSocket server with basic message validation."""
+"""WebSocket server demonstrating unicast communication."""
 import asyncio
 import websockets
-from websockets.exceptions import ConnectionClosed
+
+connected_clients = set()
 
 
 async def connection_handler(websocket):
-    """Validate each incoming message and reply OK: or ERR:EMPTY."""
+    """Track the connection and reply only to its sender."""
+    connected_clients.add(websocket)
     try:
         async for message in websocket:
-            if len(message.strip()) == 0:
-                await websocket.send("ERR:EMPTY")
-            else:
-                await websocket.send(f"OK:{message}")
-    except ConnectionClosed:
-        pass
+            await websocket.send(f"U:{message}")
+    finally:
+        connected_clients.discard(websocket)
 
 
 async def main():
