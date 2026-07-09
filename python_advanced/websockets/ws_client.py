@@ -2,6 +2,7 @@
 """Minimal WebSocket client."""
 import asyncio
 import websockets
+import os
 
 
 async def connect_and_send(uri, text):
@@ -14,7 +15,11 @@ async def connect_and_send(uri, text):
 
 async def main():
     """Send 'demo' to the local echo server and print the response."""
-    response = await connect_and_send("ws://localhost:8765", "demo")
+    uri = os.getenv("WS_URI", "ws://localhost:8765")
+    if uri == "ws://localhost:8765":
+        response = await connect_and_send(uri, "Hello WebSocket")
+    else :
+        response = await connect_and_send(uri, "demo")
     print(response, end="")
 
 
