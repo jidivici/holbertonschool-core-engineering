@@ -1,14 +1,15 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Minimal WebSocket client."""
 import asyncio
 import websockets
 
 
-async def connect_and_send(uri: str, text: str) -> str:
+async def connect_and_send(uri, text):
     """Connect to uri, send text once, return the single response."""
-    async with websockets.connect(uri) as websocket:
-        await websocket.send(text)
-        return await websocket.recv()
+    async with websockets.connect(uri) as socket:
+        await socket.send(text)
+        response = await socket.recv()
+        return response
 
 
 async def main():
