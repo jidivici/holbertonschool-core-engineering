@@ -10,28 +10,53 @@ function timestamp() {
     return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 }
 
-function addMessage(text, kind) {
+function addSystemMessage(text) {
     const line = document.createElement("div");
-    line.className = `message ${kind}`;
+    line.className = "system";
     line.textContent = text;
     messages.appendChild(line);
+    messages.scrollTop = messages.scrollHeight;
+}
+
+function addBubble(author, text, kind) {
+    const bubble = document.createElement("div");
+    bubble.className = `bubble ${kind}`;
+
+    if (kind === "received") {
+        const name = document.createElement("div");
+        name.className = "author";
+        name.textContent = author;
+        bubble.appendChild(name);
+    }
+
+    const body = document.createElement("span");
+    body.className = "text";
+    body.textContent = text;
+    bubble.appendChild(body);
+
+    const time = document.createElement("span");
+    time.className = "time";
+    time.textContent = timestamp();
+    bubble.appendChild(time);
+
+    messages.appendChild(bubble);
     messages.scrollTop = messages.scrollHeight;
 }
 
 socket.addEventListener("open", () => {
     statusEl.textContent = "Connected";
     statusEl.className = "connected";
-    addMessage("Connected to server.", "system");
+    addSystemMessage("Connected to server");
 });
 
 socket.addEventListener("message", (event) => {
-    addMessage(`[${timestamp()}] Server: ${event.data}`, "received");
+    addBubble("Server", event.data, "received");
 });
 
 socket.addEventListener("close", () => {
     statusEl.textContent = "Disconnected";
     statusEl.className = "disconnected";
-    addMessage("Disconnected from server.", "system");
+    addSystemMessage("Disconnected from server");
 });
 
 form.addEventListener("submit", (event) => {
@@ -40,7 +65,7 @@ form.addEventListener("submit", (event) => {
     if (!message || socket.readyState !== WebSocket.OPEN) return;
 
     const username = usernameInput.value.trim() || "Anonymous";
-    addMessage(`[${timestamp()}] ${username}: ${message}`, "sent");
+    addBubble(username, message, "sent");
     socket.send(message);
     input.value = "";
     input.focus();

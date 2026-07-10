@@ -6,16 +6,25 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>WebSocket Chat</h1>
-    <p id="status">Connecting...</p>
+    <div class="app">
+        <header class="topbar">
+            <h1>WebSocket Chat</h1>
+            <span id="status">Connecting…</span>
+        </header>
 
-    <div id="messages"></div>
+        <div id="messages" class="messages"></div>
 
-    <form id="form">
-        <input id="username" type="text" autocomplete="off" placeholder="Your name" value="Anonymous">
-        <input id="input" type="text" autocomplete="off" placeholder="Type a message" autofocus>
-        <button type="submit">Send</button>
-    </form>
+        <form id="form" class="composer">
+            <input id="username" class="username" type="text" autocomplete="off" placeholder="Name" value="Anonymous">
+            <input id="input" class="input" type="text" autocomplete="off" placeholder="Message" autofocus>
+            <button type="submit" class="send" aria-label="Send">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </form>
+    </div>
 
     <script src="/chat.js"></script>
 </body>
