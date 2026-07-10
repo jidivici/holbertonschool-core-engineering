@@ -1,0 +1,75 @@
+body {
+    font-family: sans-serif;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+#status {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+#status.connected {
+    color: #2a9d3f;
+}
+
+#status.disconnected {
+    color: #c0392b;
+}
+
+#messages {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.message {
+    padding: 6px 10px;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.sent {
+    align-self: flex-end;
+    background: #daf1da;
+}
+
+.message.received {
+    align-self: flex-start;
+    background: #eef0f2;
+}
+
+.message.system {
+    align-self: center;
+    color: #888;
+    font-style: italic;
+    background: none;
+    font-size: 0.85em;
+}
+
+#form {
+    display: flex;
+    gap: 8px;
+}
+
+#username {
+    width: 110px;
+    padding: 8px;
+}
+
+#input {
+    flex: 1;
+    padding: 8px;
+}
+
+button {
+    padding: 8px 16px;
+}
