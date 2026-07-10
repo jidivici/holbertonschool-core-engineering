@@ -5,6 +5,8 @@ import os
 from starlette.applications import Starlette
 from starlette.responses import FileResponse, HTMLResponse
 from starlette.routing import Route, WebSocketRoute
+from starlette.websockets import WebSocketDisconnect
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -16,20 +18,23 @@ async def homepage(request):
 
 async def chat_js(request):
     """Serve the client-side WebSocket script."""
-    return FileResponse(os.path.join(BASE_DIR, "chat.js"))
+    return FileResponse(os.path.join(BASE_DIR, "chat.js"), media_type="application/javascript")
 
 
 async def styles_css(request):
     """Serve the page stylesheet."""
-    return FileResponse(os.path.join(BASE_DIR, "styles.css"))
+    return FileResponse(os.path.join(BASE_DIR, "styles.css"), media_type="text/css")
 
 
 async def websocket_endpoint(websocket):
     """Accept a connection and echo back every text message received."""
     await websocket.accept()
-    while True:
-        message = await websocket.receive_text()
-        await websocket.send_text(message)
+    try:
+        while True:
+            message = await websocket.receive_text()
+            await websocket.send_text(message)
+    except WebSocketDisconnect:
+        pass
 
 
 app = Starlette(routes=[
