@@ -18,12 +18,14 @@ async def homepage(request):
 
 async def chat_js(request):
     """Serve the client-side WebSocket script."""
-    return FileResponse(os.path.join(BASE_DIR, "chat.js"), media_type="application/javascript")
+    return FileResponse(os.path.join(BASE_DIR, "chat.js"),
+                        media_type="application/javascript")
 
 
 async def styles_css(request):
     """Serve the page stylesheet."""
-    return FileResponse(os.path.join(BASE_DIR, "styles.css"), media_type="text/css")
+    return FileResponse(os.path.join(BASE_DIR, "styles.css"),
+                        media_type="text/css")
 
 
 async def websocket_endpoint(websocket):
